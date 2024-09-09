@@ -3,3 +3,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.custom-select {
+    color: #1f2937; 
+  }
+  
