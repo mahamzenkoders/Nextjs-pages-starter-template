@@ -1,6 +1,6 @@
 import React from "react";
 import { Field, ErrorMessage } from "formik";
-import { DateField } from "@/datafields/dateField";
+import { DateField } from "@/fields/dateField";
 
 const EducationalInfo: React.FC = () => {
   return (

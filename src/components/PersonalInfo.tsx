@@ -20,17 +20,6 @@ const PersonalInfo = () => {
     setFieldValue("hobbies", updatedHobbies);
   };
 
-  const handleImageUpload = (result: any) => {
-    const imageUrl = result.info.secure_url;
-    console.log("Profile picture URL:", imageUrl);
-    setFieldValue("profilePic", imageUrl);
-  };
-
-  const handleResumeUpload = (result: any) => {
-    const resumeUrl = result.info.secure_url;
-    setFieldValue("resumepic", resumeUrl);
-  };
-
   return (
     <form className="flex w-full max-w-lg p-8 bg-white shadow-lg rounded-lg">
       <div className="border-b border-gray-900/10 pb-12">
@@ -46,15 +35,16 @@ const PersonalInfo = () => {
             <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-5">
               <div className="text-center">
                 <CldUploadWidget
-                  uploadPreset="nextformdata"
-                  onSuccess={handleImageUpload}
-                  options={{ maxFiles: 1 }}
+                  uploadPreset="avzkzbva"
+                  onSuccess={(result) => {
+                    console.log(result);
+                  }}
                 >
                   {({ open }) => (
                     <button
                       type="button"
-                      onClick={() => open?.()}
-                      className="relative cursor-pointer rounded-md bg-white font-semibold underline text-black focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-black"
+                      onClick={() => open()}
+                      className="relative cursor-pointer rounded-md bg-white font-semibold underline text-black focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 hover:text-black"
                     >
                       <span>Upload your profile</span>
                     </button>
@@ -163,14 +153,15 @@ const PersonalInfo = () => {
             <div className="text-center">
               <div className="mt-4 flex text-sm leading-6 text-gray-600">
                 <CldUploadWidget
-                  uploadPreset="nextformdata"
-                  onSuccess={handleResumeUpload}
-                  options={{ maxFiles: 1 }}
+                  uploadPreset="avzkzbva"
+                  onSuccess={(result) => {
+                    console.log(result?.info);
+                  }}
                 >
                   {({ open }) => (
                     <button
                       type="button"
-                      onClick={() => open?.()}
+                      onClick={() => open()}
                       className="relative cursor-pointer rounded-md bg-white font-semibold underline text-black focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-black"
                     >
                       <span>Upload your Resume</span>

@@ -24,4 +24,13 @@ export interface FormValues {
     jobdescription:string,
     experiencecertificate:string
     specialization:string[],
+    l_state:string,
+    npi_number:string,
+    liscense:string,
+    insurance:string,
+    t_startdate:string,
+    t_enddate:string,
+    select_bank:string,
+    acc_title:string,
+    ibanNumber:string
   }

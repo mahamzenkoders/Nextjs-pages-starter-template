@@ -12,6 +12,7 @@ export const ShowForm: React.FC<ShowFormProps> = ({ values }) => {
         Summary of Your Details
       </h2>
       <div className="space-y-6">
+        {/* Personal Information */}
         <div className="p-4 border border-gray-200 rounded-lg">
           <h3 className="text-lg font-semibold text-gray-800 mb-4">
             Personal Information
@@ -33,6 +34,8 @@ export const ShowForm: React.FC<ShowFormProps> = ({ values }) => {
             <span className="font-medium">Race:</span> {values.race}
           </p>
         </div>
+
+        {/* Resume Information */}
         <div className="p-4 border border-gray-200 rounded-lg">
           <h3 className="text-lg font-semibold text-gray-800 mb-4">
             Resume Information
@@ -54,6 +57,8 @@ export const ShowForm: React.FC<ShowFormProps> = ({ values }) => {
             {values.hobbies.join(", ")}
           </p>
         </div>
+
+        {/* Address Information */}
         <div className="p-4 border border-gray-200 rounded-lg">
           <h3 className="text-lg font-semibold text-gray-800 mb-4">
             Address Information
@@ -68,6 +73,8 @@ export const ShowForm: React.FC<ShowFormProps> = ({ values }) => {
             <span className="font-medium">Address:</span> {values.address}
           </p>
         </div>
+
+        {/* Educational Information */}
         <div className="p-4 border border-gray-200 rounded-lg">
           <h3 className="text-lg font-semibold text-gray-800 mb-4">
             Educational Information
@@ -94,6 +101,8 @@ export const ShowForm: React.FC<ShowFormProps> = ({ values }) => {
             {values.certificate}
           </p>
         </div>
+
+        {/* Professional Information */}
         <div className="p-4 border border-gray-200 rounded-lg">
           <h3 className="text-lg font-semibold text-gray-800 mb-4">
             Professional Information
@@ -122,6 +131,8 @@ export const ShowForm: React.FC<ShowFormProps> = ({ values }) => {
             {values.experiencecertificate}
           </p>
         </div>
+
+        {/* Specialization */}
         <div className="p-4 border border-gray-200 rounded-lg">
           <h3 className="text-lg font-semibold text-gray-800 mb-4">
             Specialization
@@ -133,6 +144,45 @@ export const ShowForm: React.FC<ShowFormProps> = ({ values }) => {
               </li>
             ))}
           </ul>
+        </div>
+
+        {/* Additional Fields */}
+        <div className="p-4 border border-gray-200 rounded-lg">
+          <h3 className="text-lg font-semibold text-gray-800 mb-4">
+            Additional Information
+          </h3>
+          <p className="text-gray-700">
+            <span className="font-medium">License State:</span> {values.l_state}
+          </p>
+          <p className="text-gray-700">
+            <span className="font-medium">NPI Number:</span> {values.npi_number}
+          </p>
+          <p className="text-gray-700">
+            <span className="font-medium">License:</span> {values.liscense}
+          </p>
+          <p className="text-gray-700">
+            <span className="font-medium">Insurance:</span> {values.insurance}
+          </p>
+          <p className="text-gray-700">
+            <span className="font-medium">Training Start Time:</span>{" "}
+            {values.t_startdate}
+          </p>
+          <p className="text-gray-700">
+            <span className="font-medium">Training End Time:</span>{" "}
+            {values.t_enddate}
+          </p>
+          <p className="text-gray-700">
+            <span className="font-medium">Select Bank:</span>{" "}
+            {values.select_bank}
+          </p>
+          <p className="text-gray-700">
+            <span className="font-medium">Account Title:</span>{" "}
+            {values.acc_title}
+          </p>
+          <p className="text-gray-700">
+            <span className="font-medium">IBAN Number:</span>{" "}
+            {values.ibanNumber}
+          </p>
         </div>
       </div>
     </div>

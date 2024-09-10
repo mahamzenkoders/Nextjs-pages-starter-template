@@ -14,9 +14,15 @@ import {
   ProfessionalInfoSchema,
   PersonalInfoSchema,
   specializationSchema,
+  TimingSchema,
+  liscenseSchema,
+  bankingSchema,
 } from "@/schema/FormSchema";
 import Specialization from "@/components/specialization";
 import { ShowForm } from "@/components/showform";
+import Banking from "@/components/Banking";
+import Timing from "@/components/Timing";
+import Liscence from "@/components/Liscence";
 
 const Forms: React.FC = () => {
   const [step, setStep] = useState(1);
@@ -75,6 +81,12 @@ const Forms: React.FC = () => {
         return ProfessionalInfoSchema;
       case 4:
         return specializationSchema;
+      case 5:
+        return liscenseSchema;
+      case 6:
+        return TimingSchema;
+      case 7:
+        return bankingSchema;
       default:
         return PersonalInfoSchema;
     }
@@ -109,6 +121,9 @@ const Forms: React.FC = () => {
                 {step === 2 && <EducationalInfo />}
                 {step === 3 && <ProfessionalInfo />}
                 {step === 4 && <Specialization />}
+                {step === 5 && <Liscence />}
+                {step === 6 && <Timing />}
+                {step === 7 && <Banking />}
                 <div className="mt-8 flex justify-end space-x-4">
                   {step > 1 && (
                     <Button
@@ -125,7 +140,7 @@ const Forms: React.FC = () => {
                       const errors = await formik.validateForm();
                       console.log(errors);
                       if (Object.keys(errors).length === 0 && formik.dirty) {
-                        if (step < 4) {
+                        if (step < 7) {
                           handleNextStep(formik);
                         } else {
                           handleSubmit(formik.values, formik);
@@ -135,7 +150,7 @@ const Forms: React.FC = () => {
                     disabled={formik.isSubmitting}
                     className="px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
                   >
-                    {step < 4 ? "Next" : "Submit"}
+                    {step < 7 ? "Next" : "Submit"}
                   </Button>
                 </div>
               </Form>

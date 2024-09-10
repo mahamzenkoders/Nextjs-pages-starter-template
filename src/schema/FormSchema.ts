@@ -1,8 +1,5 @@
 import * as Yup from 'yup';
 
-export const specializationSchema = Yup.object().shape({
-  specialization: Yup.array().of(Yup.string()).min(1, "At least one specialization is required."),
-});
 
 
 export const PersonalInfoSchema=Yup.object().shape({
@@ -48,3 +45,37 @@ export const ProfessionalInfoSchema=Yup.object().shape({
   jobdescription: Yup.string().required("Job description is required."),
   // experiencecertificate: Yup.string().required("Experience certificate is required."),
 })
+
+
+export const specializationSchema=Yup.object().shape({
+  specialization: Yup.array().of(Yup.string()).min(1, "At least one specialization is required."),
+})
+
+
+export const liscenseSchema=Yup.object().shape({
+  l_state: Yup.string().required("License state is required."),
+  npi_number: Yup.string()
+    .matches(/^[0-9]{10}$/, "NPI number must be 10 digits.")
+    .required("NPI number is required."),
+  // liscense: Yup.string().required("License is required."),
+  // insurance: Yup.string().required("Insurance is required."),
+})
+
+export const TimingSchema=Yup.object().shape({
+  t_startdate: Yup.string()
+  .required("Training start date and time is required."),
+  t_enddate: Yup.string()
+  .required("Training end date and time is required.")
+})
+
+
+export const bankingSchema = Yup.object().shape({
+
+  select_bank: Yup.string().required("Bank selection is required."),
+  acc_title: Yup.string().required("Account title is required."),
+  ibanNumber: Yup.string()
+    .matches(/^[A-Z0-9]+$/, "IBAN must contain only letters and numbers.")
+    .min(15, "IBAN must be at least 15 characters.")
+    .max(34, "IBAN must be at most 34 characters.")
+    .required("IBAN number is required.")
+});

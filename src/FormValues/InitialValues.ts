@@ -26,4 +26,13 @@ export const initialValues: FormValues = {
     jobdescription:"",
     experiencecertificate:"",
     specialization:[],
+    l_state:"",
+    npi_number:"",
+    liscense:"",
+    insurance:"",
+    t_startdate:"",
+    t_enddate:"",
+    select_bank:"",
+    acc_title:"",
+    ibanNumber:""
   };
