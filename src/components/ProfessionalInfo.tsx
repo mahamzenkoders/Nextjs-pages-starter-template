@@ -8,10 +8,9 @@ const ProfessionalInfo: React.FC = () => {
     <div className="flex w-full max-w-3xl p-8 bg-white shadow-lg rounded-lg">
       <div className="border-b border-gray-900/10 pb-12 w-full">
         <h2 className="text-center text-gray-700 font-semibold leading-70 text-lg">
-          Professional Information
+          Professional Info
         </h2>
         <div className="mt-3 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 w-full">
-         
           <div className="sm:col-span-6 w-full">
             <Field
               id="companyname"
