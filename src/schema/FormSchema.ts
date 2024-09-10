@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 
 
 export const PersonalInfoSchema=Yup.object().shape({
-  // porfilespic: Yup.string().required("Profile picture is required."),
+  porfilespic: Yup.string().required("Profile picture is required."),
   age: Yup.number()
     .min(18, "Age must be at least 18.")
     .max(100, "Age must be less than or equal to 100.")

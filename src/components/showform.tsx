@@ -17,10 +17,10 @@ export const ShowForm: React.FC<ShowFormProps> = ({ values }) => {
           <h3 className="text-lg font-semibold text-gray-800 mb-4">
             Personal Information
           </h3>
-          <p className="text-gray-700">
+          {/* <p className="text-gray-700">
             <span className="font-medium">Profile Picture:</span>{" "}
             {values.porfilespic}
-          </p>
+          </p> */}
           <p className="text-gray-700">
             <span className="font-medium">Age:</span> {values.age}
           </p>

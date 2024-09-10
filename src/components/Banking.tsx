@@ -26,7 +26,7 @@ const Banking = () => {
               <option value="balochistan">National Bank</option>
             </Field>
             <ErrorMessage
-              name="l_state"
+              name="select_bank"
               component="div"
               className="text-red-500 text-sm mt-1"
             />
