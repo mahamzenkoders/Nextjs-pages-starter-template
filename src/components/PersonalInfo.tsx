@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Field, ErrorMessage, useFormikContext } from "formik";
 import { FormValues } from "@/interface/interfaceValues";
 import { CldUploadWidget } from "next-cloudinary";
+import Image from "next/image";
 
 const PersonalInfo = () => {
   const { values, setFieldValue } = useFormikContext<FormValues>();
@@ -30,39 +31,47 @@ const PersonalInfo = () => {
           Basic Information
         </h2>
 
-        <div className="border-b border-gray-900/10 pb-12">
-          <div className="col-span-full">
-            <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-5">
-              <div className="text-center">
-                <CldUploadWidget
-                  uploadPreset="avzkzbva"
-                  onSuccess={(result) => {
-                    console.log(result);
-                  }}
-                >
-                  {({ open }) => (
-                    <button
-                      type="button"
-                      onClick={() => open()}
-                      className="relative cursor-pointer rounded-md bg-white font-semibold underline text-black focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 hover:text-black"
-                    >
-                      <span>Upload your profile</span>
-                    </button>
-                  )}
-                </CldUploadWidget>
+        {values.porfilespic ? (
+          <Image src={values?.porfilespic} alt="" height={50} width={350} />
+        ) : (
+          <div className="border-b border-gray-900/10 pb-12">
+            <div className="col-span-full">
+              <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-5">
+                <div className="text-center">
+                  <CldUploadWidget
+                    uploadPreset="avzkzbva"
+                    onSuccess={(result, { close }) => {
+                      console.log(result.info);
+                      if (typeof result.info !== "string" && result.info) {
+                        setFieldValue("porfilespic", result.info.secure_url);
+                        close();
+                      }
+                    }}
+                  >
+                    {({ open }) => (
+                      <button
+                        type="button"
+                        onClick={() => open()}
+                        className="relative cursor-pointer rounded-md bg-white font-semibold underline text-black focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 hover:text-black"
+                      >
+                        <span>Upload your profile</span>
+                      </button>
+                    )}
+                  </CldUploadWidget>
 
-                <p className="text-xs leading-5 text-gray-600">
-                  PNG, JPG or PDF
-                </p>
+                  <p className="text-xs leading-5 text-gray-600">
+                    PNG, JPG or PDF
+                  </p>
+                </div>
               </div>
+              <ErrorMessage
+                name="profilePic"
+                component="div"
+                className="text-red-500 text-sm mt-1"
+              />
             </div>
-            <ErrorMessage
-              name="profilePic"
-              component="div"
-              className="text-red-500 text-sm mt-1"
-            />
           </div>
-        </div>
+        )}
 
         <div className="mt-3 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
           <div className="sm:col-span-3">
@@ -155,16 +164,16 @@ const PersonalInfo = () => {
                 <CldUploadWidget
                   uploadPreset="avzkzbva"
                   onSuccess={(result) => {
-                    console.log(result?.info);
+                    console.log(result.info);
                   }}
                 >
                   {({ open }) => (
                     <button
                       type="button"
                       onClick={() => open()}
-                      className="relative cursor-pointer rounded-md bg-white font-semibold underline text-black focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-black"
+                      className="relative cursor-pointer rounded-md bg-white font-semibold underline text-black focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 hover:text-black"
                     >
-                      <span>Upload your Resume</span>
+                      <span>Upload your profile</span>
                     </button>
                   )}
                 </CldUploadWidget>
